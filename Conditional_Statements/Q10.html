@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identify fruits and vegetables</title>
+</head>
+
+<body>
+    <script>
+        var category = Number(prompt("Press 1 for fruits | Press 2 for vegetables"));
+
+        switch (category) {
+            case 1:
+                var fruit = Number(prompt("Press 1 for Apple || Press 2 for Banana || Press 3 for Orange"));
+                switch (fruit) {
+                    case 1:
+                        alert("Apple is available");
+                        break;
+                    case 2:
+                        alert("Banana is available");
+                        break;
+                    case 3:
+                        alert("Orange is available")
+                        break;
+                    default:
+                        alert("Sorry this fruit is not available")
+                }
+                break;
+            case 2:
+                var vegetable = Number(prompt("Press 1 for Carrot || Press 2 for Spinach || Press 3 for Potato"))
+                switch (vegetable) {
+                    case 1:
+                        alert("Carrot is available")
+                        break;
+                    case 2:
+                        alert("Spinach is available")
+                        break;
+                    case 3:
+                        alert("Potato is available")
+                    default:
+                       alert("Sorry this vegetable is not available")
+                }
+                break;
+            default:
+                alert("Invalid input")
+        }
+    </script>
+</body>
+
+</html>

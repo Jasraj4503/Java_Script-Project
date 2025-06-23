@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Pop-Up</title>
+</head>
+<body>
+    <script>
+        var choice = Number(prompt("Press 1 for English | Press 2 for Hindi | Press 3 for Gujarati"));
+
+        switch (choice) {
+            case 1:
+                var english = Number(prompt("Press 1 for Internet Recharge || Press 2 for Top-Up Recharge || Press 3 for Special Recharge"));
+                switch(english){
+                    case 1: 
+                        alert("You have successfully done a Internet Recharge");
+                        break;
+                    case 2:
+                        alert("You have successfully done a Top-Up Recharge")
+                        break;
+                    case 3:
+                        alert("You have successfully done a Special Recharge")
+                        break;
+                    default:
+                        alert("Wrong input");
+                }
+            break;
+        
+            case 2: 
+                var hindi = Number(prompt("Internet Recharge ke liye 1 dabaiye || Top-Up Recharge ke liye 2 dabaiye || Special Recharge ke liye 3 dabaiye"));
+                switch (hindi) {
+                    case 1:
+                    alert("aapne safaltapurvak Internet Recharge kar liya haii !!!")
+                        break;
+                    case 2:
+                        alert("aapne safaltapurvak Top-Up Recharge kar liya haii !!!")
+                        break;
+                    case 3:
+                        alert("aapne safaltapurvak Special Recharge kar liya haii !!!")
+                        break;
+                    default:
+                        alert("wrong input")
+                }
+            break;
+
+            case 3: 
+                var gujarati = Number(prompt("Internet Recharge mate 1 dabavo || Top-Up Recharge mate 2 dabavo || Special Recharge mate 3 dabavo"));
+                switch(gujarati){
+                    case 1:
+                        alert("tame safaltapurvak Internet Recharge karyu chhe !!!")
+                        break;
+                    case 2:
+                        alert("tame safaltapurvak Top-Up Recharge karyu chhe !!!")
+                        break;
+                    case 3:
+                        alert("tame safaltapurvak Special Recharge karyu chhe !!!")
+                        break;
+                    default:
+                        alert("wrong input")
+                }
+            break;
+
+            default:
+                alert("Wrong input")
+        }
+    </script>
+</body>
+</html>
