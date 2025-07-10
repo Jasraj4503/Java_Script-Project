@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="col-6 shadow mx-auto my-5 p-3">
+      <input
+        type="number"
+        placeholder="Enter the number"
+        id="value"
+        class="mb-3 col-12"
+      />
+      <button
+        type="submit"
+        onclick="calc()"
+        class="col-12 mb-4 bg-success text-white fw-bold"
+      >
+        Submit
+      </button>
+      <p id="array">Array:-</p>
+      <p id="Count">Count of Digits:-</p>
+      <p id="Sum">Sum:-</p>
+      <p id="avg">Average:-</p>
+      <p id="max">Maximum:-</p>
+      <p id="min">Minimum:-</p>
+    </div>
+
+    <script>
+      const Numbers = [];
+
+      function calc() {
+        const val = document.getElementById("value");
+        const num = Number(val.value);
+
+        if (!isNaN(num)) {
+          Numbers.push(num);
+          document.getElementById("array").innerHTML = "Array:-  " + Numbers;
+          val.value = "";
+
+          let sum = 0;
+          let max = Numbers[0];
+          let min = Numbers[0];
+          const count = Numbers.length;
+
+          document.getElementById("Count").innerHTML =
+            "Count of Digits: " + count;
+
+          for (let i = 0; i < Numbers.length; i++) {
+            sum += Numbers[i];
+
+            if (Numbers[i] > max) {
+              max = Numbers[i];
+            }
+
+            if (Numbers[i] < min) {
+              min = Numbers[i];
+            }
+          }
+          document.getElementById("Sum").innerHTML = "Sum: " + sum;
+          document.getElementById("max").innerHTML = "Maximum: " + max;
+          document.getElementById("min").innerHTML = "Minimum: " + min;
+          let avg = sum / Numbers.length;
+          document.getElementById("avg").innerHTML = "Average: " + avg.toFixed(2);
+        }
+      }
+    </script>
+  </body>
+</html>
