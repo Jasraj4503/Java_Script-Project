@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+</head>
+</head>
+
+<body>
+
+    <div id="Checkout_Cart"></div>
+    <script>
+        function showCart() {
+            const cartList = JSON.parse(localStorage.getItem('cartList')) || []
+            let output = ""
+            if (cartList.length == 0) {
+                output += `
+                    <div class="card col-lg-6 mx-auto my-5 shadow border-0 text-center">
+                        <h1>Empty cart</h1>
+                    </div>
+                `
+            } else {
+                cartList.forEach((cart) => {
+                    output +=`
+                        <div class="card col-lg-8 mx-auto my-4 shadow-lg border-0 rounded-4 overflow-hidden">
+                            <div class="row g-0">
+                            <!-- Image Section -->
+                                <div class="col-md-4">
+                                    <img src="${cart.url}" alt="${cart.name}" class="img-fluid h-100 object-fit-cover rounded-start">
+                                </div>
+
+                                <!-- Details Section -->
+                                <div class="col-md-8">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <h4 class="card-title mb-2 fs-1">${cart.name}</h4>
+                                            <span class="badge bg-success fs-6">₹${cart.price}</span>
+                                        </div>
+                                        <p class="mb-3"><strong>Description:</strong> ${cart.description.toUpperCase()}</p>
+
+                                        <ul class="list-unstyled mb-3">
+                                            <li><strong>Category:</strong> ${cart.category}</></li>
+                                            <li><strong>Quantity:</strong> ${cart.count}</li>
+                                            <li><strong>Total:</strong> ₹${cart.price * cart.count}</li>
+                                        </ul>
+
+                                        <div class="text-end">
+                                            <button onclick="removeCart(${cart.id})" class="btn btn-outline-danger btn-sm rounded-pill px-3">
+                                                <i class="bi bi-trash-fill"></i> Remove
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    `
+                })
+            }
+            document.querySelector('#Checkout_Cart').innerHTML = output
+
+        }
+        showCart()
+
+        function removeCart(id) {
+            const cartList = JSON.parse(localStorage.getItem('cartList')) || []
+            const filterCart = cartList.filter((cart) => {
+                return cart.id !== id
+            })
+            localStorage.setItem('cartList', JSON.stringify(filterCart))
+            showCart()
+        }
+    </script>
+</body>
+
+</html>
