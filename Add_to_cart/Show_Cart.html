@@ -6,11 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <style>
+        header{
+            height: 50px;
+        }
+        header a{
+            text-decoration: none;
+            line-height: 50px;
+            padding-left: 80px;
+        }
+    </style>
 </head>
 </head>
 
 <body>
-
+    <header class="w-100 bg-primary">
+        <a href="index.html" class="text-white">Home</a>
+    </header>
     <div id="Checkout_Cart"></div>
     <script>
         function showCart() {
@@ -19,7 +31,7 @@
             if (cartList.length == 0) {
                 output += `
                     <div class="card col-lg-6 mx-auto my-5 shadow border-0 text-center">
-                        <h1>Empty cart</h1>
+                        <h1>Cart is empty</h1>
                     </div>
                 `
             } else {
@@ -39,9 +51,9 @@
                                             <h4 class="card-title mb-2 fs-1">${cart.name}</h4>
                                             <span class="badge bg-success fs-6">₹${cart.price}</span>
                                         </div>
-                                        <p class="mb-3"><strong>Description:</strong> ${cart.description.toUpperCase()}</p>
-
+                                        
                                         <ul class="list-unstyled mb-3">
+                                            <li><strong>Description:</strong> ${cart.description.toUpperCase()}</li>
                                             <li><strong>Category:</strong> ${cart.category}</></li>
                                             <li><strong>Quantity:</strong> ${cart.count}</li>
                                             <li><strong>Total:</strong> ₹${cart.price * cart.count}</li>

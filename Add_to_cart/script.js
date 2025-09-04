@@ -16,7 +16,7 @@ document.querySelector('#blog').addEventListener('submit', (e) => {
 
     const newProduct = {
         id,
-        category: category.value,
+        category: category.value.toUpperCase(),
         name: name.value.toUpperCase(),
         price: price.value,
         url: url.value,
@@ -31,6 +31,7 @@ document.querySelector('#blog').addEventListener('submit', (e) => {
 })
 
 function show() {
+    let productList = JSON.parse(localStorage.getItem('productList')) || [];
     let output = ""
     if (productList == null || productList.length == 0) {
         var result = `
@@ -41,7 +42,7 @@ function show() {
         document.querySelector('#showProduct').innerHTML = result
     }
     else {
-        productList.forEach((product, index) => {
+        productList.forEach((product) => {
             output += `
             <div class="col-lg-4">
                 <div class="card shadow border-0 mt-3">
@@ -95,11 +96,11 @@ function addToCart(id) {
 
 function cartLength() {
     let cartList = JSON.parse(localStorage.getItem('cartList')) || [];
-    const counting = cartList.map((cart) =>{
+    const counting = cartList.map((cart) => {
         return cart.count
     })
     console.log(counting)
-    const sum = counting.reduce((acc, curr) =>{
+    const sum = counting.reduce((acc, curr) => {
         return acc + curr
     })
     document.querySelector('#output').innerHTML = sum
